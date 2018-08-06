@@ -20,8 +20,9 @@ public MatchSorter(int batsMenOrder, String batsMenName, String batsMenLastName)
 	this.batsMenLastName = batsMenLastName;
 }
 public static void main(String[] args) {
+	//without using sort lamba expresion
 List<MatchSorter>list=	getMatchSorterList();
-list.sort(new Comparator<MatchSorter>(){
+/*list.sort(new Comparator<MatchSorter>(){
 
 	@Override
 	public int compare(MatchSorter o1, MatchSorter o2) {
@@ -29,7 +30,9 @@ list.sort(new Comparator<MatchSorter>(){
 		return o1.batsMenOrder-o2.batsMenOrder;
 	}
 	
-});
+});*/
+//using lamba sorting
+list.sort((MatchSorter sorter1,MatchSorter sorter2)->sorter1.batsMenOrder-sorter2.batsMenOrder);
 for (MatchSorter matchSorter : list) {
 	System.out.println(matchSorter.batsMenOrder);
 }
